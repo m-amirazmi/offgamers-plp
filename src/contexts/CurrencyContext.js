@@ -9,8 +9,6 @@ export const useCurrency = () => useContext(CurrencyContext);
 export const CurrencyProvider = ({ children }) => {
 	const [currency, setCurrency] = useState({});
 
-	console.log(currency);
-
 	useEffect(() => {
 		const getCurrency = getCookie(document, 'currency');
 		const findMYR = currencies.find((item) => (getCurrency ? item.name === getCurrency : 'MYR'));

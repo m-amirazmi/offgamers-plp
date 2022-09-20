@@ -12,7 +12,7 @@ export const usePLP = () => {
 
 	useEffect(() => {
 		const copyData = [...plpData.data];
-		const filterSearch = copyData.filter((item) => item.name.toLowerCase().includes(search));
+		const filterSearch = copyData.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()));
 
 		setData(filterSearch);
 	}, [search]);

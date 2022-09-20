@@ -1,13 +1,14 @@
 import { SortSearchBar } from '../components/SortSearchBar';
 import { CardItem } from '../components/CardItem';
 import { usePLP } from '../hooks/usePLP';
-import { useState } from 'react';
 import { sortPrice } from '../utils/sort';
+import { useCart } from '../contexts/CartContext';
+import { useCurrency } from '../contexts/CurrencyContext';
 
 export const PLP = () => {
-	const { data, currency, priceSort, setSearch, setPriceSort } = usePLP();
-
-	const [cart, setCart] = useState();
+	const { data, priceSort, setSearch, setPriceSort } = usePLP();
+	const { currency } = useCurrency();
+	const { addToCart } = useCart();
 
 	return (
 		<section>
@@ -16,7 +17,7 @@ export const PLP = () => {
 			{data.length > 0 && (
 				<div className="plp">
 					{sortPrice(data, priceSort).map((item) => (
-						<CardItem key={item.name} item={item} currency={currency} />
+						<CardItem key={item.name} item={item} currency={currency} addToCart={addToCart} />
 					))}
 				</div>
 			)}

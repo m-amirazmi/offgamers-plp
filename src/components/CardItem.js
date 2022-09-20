@@ -1,6 +1,6 @@
 import { convertPrice } from '../utils/convert';
 
-export const CardItem = ({ item, currency }) => {
+export const CardItem = ({ item, currency, addToCart }) => {
 	return (
 		<div className="plp-item">
 			<div className="plp-image">
@@ -16,7 +16,7 @@ export const CardItem = ({ item, currency }) => {
 				</p>
 			</div>
 			<div className="plp-item-cta">
-				<button>BUY</button>
+				<button onClick={() => addToCart(item)}>BUY</button>
 			</div>
 		</div>
 	);

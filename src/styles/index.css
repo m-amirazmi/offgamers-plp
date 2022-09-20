@@ -251,7 +251,6 @@ img {
 .sort {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
 	align-items: center;
 	margin-top: 32px;
 	font-size: 14px;
@@ -261,9 +260,6 @@ img {
 .sort .sort-search {
 	max-width: 600px;
 	width: 100%;
-}
-
-.sort .sort-price {
 }
 
 .sort .sort-search input {
@@ -277,6 +273,7 @@ img {
 
 .sort .sort-price {
 	position: relative;
+	margin-left: auto;
 }
 
 .sort .sort-price .sort-price-input {
@@ -316,6 +313,12 @@ img {
 
 .sort .sort-price .sort-price-list p:hover {
 	border: 1px solid var(--color-primary-soft);
+}
+
+.sort .sort-items-length {
+	background-color: var(--color-primary-soft);
+	color: var(--color-dark-soft);
+	padding: 8px 12px;
 }
 
 @media screen and (max-width: 992px) {

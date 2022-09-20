@@ -1,22 +1,9 @@
 import { HeaderSwitcher } from './HeaderSwitcher';
 import { currencies } from '../data/currencies';
-import { useEffect, useState } from 'react';
-import { getCookie, setCookie } from '../utils/cookie';
+import { useCurrency } from '../hooks/useCurrency';
 
 export const Header = () => {
-	const [currency, setCurrency] = useState({});
-
-	useEffect(() => {
-		const getCurrency = getCookie(document, 'currency');
-		const findMYR = currencies.find((item) => (getCurrency ? item.name === getCurrency : 'MYR'));
-		setCurrency(findMYR);
-	}, []);
-
-	const handleSelected = (item) => {
-		setCookie(document, 'currency', item.name);
-		setCurrency(item);
-		window.location.reload();
-	};
+	const { currency, handleSelected } = useCurrency();
 
 	return (
 		<header className="header">
